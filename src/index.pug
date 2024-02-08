@@ -1,0 +1,55 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title EZAltz.com
+    link(rel="stylesheet", href="css/style.css")
+  body
+    include ./sections/_navigation
+    include ./sections/_home
+    include ./sections/_stats-widgets
+    include ./sections/_info
+    include ./sections/_how-it-works
+    include ./sections/_premium
+    include ./sections/_bans-widgets
+    include ./sections/_discord
+    include ./sections/_faq
+
+
+script.
+  function animateNumber(callback, from, to, duration) {
+    let start = null,
+      animate = timestamp => {
+        start = start || timestamp;
+        let progress = Math.min((timestamp - start) / duration, 1);
+        callback(progress * (to - from) + from);
+        if(progress < 1) {
+          window.requestAnimationFrame(animate);
+        }
+      };
+    window.requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('load', async () => {
+    const url = 'https://beta.ezaltz.com/api/stats'
+    const data = await fetch(url).then(res => res.json())
+    const { vac, game, community } = data.bans
+    const { accounts, users } = data.total
+    const { accounts: accounts24, users: users24 } = data.last24h
+    const { generationAverageTime } = data
+    animateNumber(value => {
+      document.getElementById('generationAverageTime').textContent = parseFloat(value).toFixed(3);
+    }, generationAverageTime / 1000 - 5, generationAverageTime / 1000, 2000);
+    animateNumber(value => {
+      document.getElementById('accountsCount24').textContent = '+'+ Math.floor(value)
+    }, 0, accounts24, 1000);
+    document.getElementById('accountsCount').innerText = accounts
+    animateNumber(value => {
+      document.getElementById('usersCount24').textContent = '+'+ Math.floor(value)
+    }, 0, users24, 1000);
+    document.getElementById('usersCount').innerText = users
+    document.getElementById('vacBansCount').innerText = vac
+    document.getElementById('gameBansCount').innerText = game
+    document.getElementById('communityBansCount').innerText = community
+  })

@@ -1,0 +1,21 @@
+{
+  "name": "ezaltz-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pug": "pug3 -P ./src/index.pug --out ./dist",
+    "stylus": "stylus -w ./src/stylus -o ./dist/css",
+    "build": "npm run pug & npm run stylus",
+    "dev": "concurrently --kill-others \"stylus -w ./src/stylus -o ./dist/css\" \"pug3 -P --watch ./src/index.pug --out ./dist\" \"http-server dist -p 1337 -c-1\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tokilabs/pug3-cli": "^3.0.1",
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1",
+    "stylus": "^0.62.0"
+  }
+}

@@ -1,0 +1,47 @@
+section#faq
+  h2 F&Q
+  .faq
+    .question What is EZAltz? (Steam Account Generator)
+    .answer EZAltz is a service that allows you to generate and use unlimited Steam accounts for free.
+  .faq
+    .question What is the process for using the steam account generator?
+    .answer Using our account generator is simple. Input your preferences, such as account details and customization options. Our AI-powered automation takes over, creating your account quickly and securely.
+  .faq
+    .question Can I personalize the steam accounts I generate?
+    .answer Absolutely! We offer a range of customization options, allowing you to tailor each steam account according to your preferences. From usernames to account settings, you have control.
+  .faq
+    .question How does the email verification work?
+    .answer Our automated email service handles verification seamlessly. Upon creating an account, our system automatically verifies the email associated with it, ensuring a smooth experience for you.
+  .faq
+    .question What benefits do premium users enjoy?
+    .answer Premium users gain access to exclusive perks, including personalized account details, their own email domain, the ability to change countries, dedicated proxies for security, make sales, and higher account limits.
+  .faq
+    .question How can I contribute to the platform's development?
+    .answer You can support us by donating or subscribing to our premium plans or the Ko-fi donation. Your contributions help us enhance and maintain our service.
+  .faq
+    .question Is there a way to automatically add games to my library using the steam account generator?
+    .answer Yes, we provide an automated feature that allows you to directly add free games to your library using our account generator.
+  .faq
+    .question CS2 generator?
+    .answer In the near future, we're looking to introduce an exciting new option: the opportunity to purchase budget-friendly CS2 accounts at level 2. This will provide you with even more choices to suit your gaming preferences.
+  .faq
+    .question Can I use my own domain for email addresses with the steam accounts generated?
+    .answer Yes, you can! Our platform offers the feature to use your own domain for email addresses associated with the accounts you generate. This allows for a more personalized and professional touch to your accounts.
+  .faq
+    .question Is mail two-factor authentication (2FA) supported?
+    .answer Currently, we offer email guard activation as an option for enhanced security. However, you can choose to enable or disable email guard activation based on your preferences.
+  .faq
+    .question Is mobile two-factor authentication (2FA) supported?
+    .answer Yes, we offer mobile guard activation as an option in steam account generator. You can see mobile guard code in steam account view page, and you can download .mafile for SDA, and you can use it for SDA. However, you can choose to enable or disable mobile guard activation based on your preferences.
+
+script.
+  document.querySelectorAll('.faq').forEach((question) => {
+    question.addEventListener('click', () => {
+      const answer = question.querySelector('.answer');
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+      } else {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      }
+    });
+  });

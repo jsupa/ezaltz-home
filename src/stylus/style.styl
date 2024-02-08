@@ -1,0 +1,90 @@
+@import '_variables'
+
+@import 'sections/_navigation'
+@import 'sections/_home'
+@import 'sections/_widgets-info'
+@import 'sections/_info'
+@import 'sections/_how-it-works'
+@import 'sections/_premium'
+@import 'sections/_widgets-ban'
+@import 'sections/_discord'
+@import 'sections/_faq'
+
+@import 'elements/_widget'
+
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+
+body
+  background main-color
+  max-width 1200px
+  margin 10px auto
+  font-family 'Arial', sans-serif
+
+.seconds
+  &::after
+    content 's'
+
+.count
+  &::after
+    content 'x'
+
+section
+  max-width 1200px
+  margin 30px auto
+  display: flex;
+  justify-content: space-between;
+  padding 0 20px
+
+  .left
+    width 50%
+
+  .right
+    width 50%
+
+h1
+  font-size h1-font-size
+  font-weight 700
+  line-height 60px
+  letter-spacing 0.5px
+  color text-color
+
+h2
+  font-size h2-font-size
+  font-weight 700
+  line-height 40px
+  letter-spacing 0.5px
+  color text-color
+
+p
+  font-size p-font-size
+  font-weight 400
+  line-height 30px
+  color text-color
+  letter-spacing 0.4px
+
+button
+  border-radius button-radius
+  display flex
+  padding 10px 32px
+  align-items center
+  justify-content center
+  font-weight 500
+  line-height normal
+  letter-spacing -0.4px
+  font-size 18px
+  border none
+  cursor pointer
+  transition all 0.2s ease-in-out
+  &:hover
+    transform scale(1.02)
+
+.green
+  background green-color
+  color main-color
+
+.blue
+  background blue-color
+  color main-color

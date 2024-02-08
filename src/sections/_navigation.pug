@@ -1,0 +1,10 @@
+nav
+  a.logo(text='Logo' href='/' title='Home')
+    span EZ
+    | Altz
+  //- ul.links
+    - links = ['info', 'how-it-works', 'premium', 'support']
+    each link in links
+      li
+        a.link(href=`#${link}` title=link)= link.replace(/-/g, ' ')
+  button.green Dashboard
